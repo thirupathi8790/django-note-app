@@ -1,6 +1,6 @@
 version : "3.3"
 services :
   web :
-     image : thirupathinaik/my-node-app:latest
+     image : thirupathinaik/my-note-app:latest
      ports :
          - "8000:8000"
