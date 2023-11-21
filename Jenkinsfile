@@ -11,16 +11,16 @@ pipeline{
         stage("build"){
             steps {
                 echo "build the image"
-                sh "docker build -t my-node-app ."
+                sh "docker build -t my-node-app1 ."
             }
         }
         stage("Push to DockerHub"){
             steps {
                 echo "push the image to the Docker HUb"
                 withCredentials([usernamePassword(credentialsId: "DockerHub", passwordVariable: "DockerHubPass", usernameVariable: "DockerHubUser")]) {
-                sh "docker tag my-node-app ${env.DockerHubUser}/my-node-app:latest"    
+                sh "docker tag my-node-app1 ${env.DockerHubUser}/my-node-app1:latest"    
                 sh "docker login -u ${env.DockerHubUser} -p ${env.DockerHubPass}"
-                sh "docker push ${env.DockerHubUser}/my-node-app:latest"
+                sh "docker push ${env.DockerHubUser}/my-node-app1:latest"
   
                 }
             }
